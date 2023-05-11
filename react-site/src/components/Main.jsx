@@ -3,6 +3,7 @@ import About from "./About"
 import Positions from "./Positions"
 import Breathing from "./Breathing"
 import Health from "./Health"
+import Video from "./Video"
 function Main() {
 
     return(
@@ -11,7 +12,8 @@ function Main() {
             <About/>
             <Positions/>
             <Breathing/>
-           {/* { <Health/>} */}
+            <Health/>
+            <Video/>
         </main>
     )
 }
