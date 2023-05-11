@@ -16,7 +16,9 @@ function Health() {
     return(
         <section className="health">
             <div className="values grid">
-            {symbiosisEl}
+            <div className="symbiosis grid">
+                {symbiosisEl}
+            </div>
             <HealthValues/>
             </div>
         </section>
