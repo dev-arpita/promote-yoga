@@ -47,12 +47,9 @@ body {
     grid-template-columns: 1fr;
 }
 
-.grid1x3 {
-    grid-template-columns: repeat(3, 1fr);
-}
 
 .container {
-    width: 1000px;
+    max-width: 500px;
     margin: 0 auto;
 }
 
@@ -60,6 +57,7 @@ body {
     text-transform: var(--text-caps);
     color: var(--clr-primary);
     font-family: 'Cantora One', sans-serif;
+    font-size: 2.2rem;
 }
 
 
@@ -75,16 +73,20 @@ body {
     background-color: #fff;
 }
 
-.logo img {
+.logo a img {
     width: 60px;
     height: 60px;
     margin-top: 5px;
 }
-
-.nav-link {
-    display: flex;
-    gap: 1.5rem;
+.menu-btn {
+    font-size: 2rem;
+}
+ul {
     list-style: none;
+}
+.nav-link {
+    display: none;
+    gap: 1.5rem;
 }
 
 .link a {
@@ -109,7 +111,22 @@ img {
     width: 100%;
     object-fit: cover;
 }
-
+@media screen and (min-width:850px) {
+    .container {
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+    .nav-link {
+        display: flex;
+        gap: 1.5rem;
+    }
+    .title{
+        font-size: 3.2rem;
+    }
+    .menu-btn {
+        display: none;
+    }
+}
 /*-----------------MAIN----------------*/
 /*Grouping elements*/
 
@@ -138,25 +155,29 @@ img {
 }
 
 .subtitle {
-    /* color: var(--clr-primary); */
     color: #212020;
-    /* text-shadow: 0 0 30px  rgb(235, 232, 230); */
     font-size: 2.2rem;
     margin-top: 0;
     font-weight: 600;
 }
 
 /*About*/
+
 .about {
     gap: 15px;
     text-align: center;
     padding: var(--padding) 0;
 }
-
+.active a {
+    color: rgb(4, 118, 120);
+    
+}
 .about-img {
     height: 250px;
 }
-
+.about .grid {
+    grid-template-columns: repeat(1, 1fr);
+}
 .container.grid {
     gap: 2rem;
 }
@@ -171,12 +192,16 @@ img {
 }
 
 @media screen and (min-width:760px) {
+    .about .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
     .about-article-title {
         font-size: 2.5rem;
     }
 }
 
 /*poses*/
+
 .content {
     width: 100%;
     max-width: 700px;
@@ -225,7 +250,7 @@ hr {
     margin-top: 1rem;
 }
 
-.breathing-content .subtitle .breating-img {
+.breathing-content .subtitle  {
     height: 500px;
 }
 
@@ -244,39 +269,34 @@ hr {
         width: 30%;
         margin-left: 10rem;
     }
-
-    .breating-img {
-        height: 600px;
-    }
 }
 
 /*health-section*/
 .health {
     padding: var(--padding);
+    background: #fff;
 }
 
-.values.grid {
-    grid-template-columns: 1fr;
+.values.flex {
+    flex-direction: column;
     align-items: center;
 }
-
-.symbiosis.grid {
-    grid-template-columns: 1fr;
-    justify-items: center;
+.symbiosis.flex {
+    flex-wrap: wrap;
+    align-items: center;
     gap: 10px;
 }
 
 .symbols span {
-    font-size: 9rem;
+    font-size: 7rem;
     color: antiquewhite;
 }
-
 .symbols {
-    font-size: 2.2rem;
+    font-size: 2rem;
     color: #4d4b4b;
     font-weight: var(--fw-semi_bold);
-    width: 30rem;
-    height: 30rem;
+    width: 20rem;
+    height: 20rem;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -284,22 +304,20 @@ hr {
     gap: 20px;
 }
 
-.icon-container {
-    display: inline-block;
-    border: 2px solid red;
-    width: 50px;
-    border-radius: 50%;
-    height: 50px;
-    color: #000;
-    font-size: 24px;
-}
 
 @media screen and (min-width: 760px) {
 
-    .values.grid,
-    .symbiosis.grid {
-        grid-template-columns: 1fr 1fr;
-        justify-content: start;
+    .values.flex {
+        flex-direction: row;
+        align-items: center;
+        gap: 4rem;
+    }
+    
+
+    .symbols {
+        width: 30rem;
+        height: 30rem;
+        font-size: 2.2rem;
     }
 }
 
@@ -314,12 +332,14 @@ hr {
 .video-subtitle {
     padding-top: 2rem;
 }
-
+.video-container {
+ width: 80vw;
+}
 .video-frame {
     opacity: 0.4;
     object-fit: cover;
     width: 100%;
-    height: 720px;
+    aspect-ratio: 1 / 1;
 }
 
 .video-frame:hover {
@@ -334,12 +354,21 @@ hr {
 
 .footer {
     background: url("https://images.unsplash.com/photo-1499728603263-13726abce5fd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
-    height: 20%;
+    height: 90vh;
+    background-position: center 75%;
     background-size: cover;
-    padding-top: var(--padding);
-    align-items: center;
+    padding: var(--padding) 0 ;
+    align-items: start;
 }
 
 .footer p {
     margin: 5px;
 }
+@media screen and (min-width: 760px) {
+footer {
+    height: 100vh;
+    background-position: center;
+    padding: var(--padding) 2rem calc(var(--padding) + 2rem);
+    align-items: center;
+}
+
